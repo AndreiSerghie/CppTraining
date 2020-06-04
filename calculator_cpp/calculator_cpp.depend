@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1590658075 source:d:\cpp_project\calculator_cpp\calculator_cpp\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	"BasicMath.h"
+	"Print.h"
+
+1590734598 d:\cpp_project\calculator_cpp\calculator_cpp\basicmath.h
+	"Print.h"
+
+1590734751 d:\cpp_project\calculator_cpp\calculator_cpp\print.h
+
