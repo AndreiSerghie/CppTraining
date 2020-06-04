@@ -20,11 +20,6 @@ namespace math
 
         ~BasicMath() { print::ObjectDeconstructor(); }
     };
-
-//    class BasicMathChild : BasicMath
-//    {
-//        LD_t ChFirstElement, ChSecondElement, ChResult;
-//    };
 }
 
 #endif // _BASIC_MATH_H_
