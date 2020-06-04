@@ -12,6 +12,16 @@
 /************************************************************************************/
 #define NO_MATH_OPERATIONS 4
 /************************************************************************************/
+/*** ENUMERATIONS *******************************************************************/
+/************************************************************************************/
+enum eMathOperations
+{
+    AdditionOperation = 0,
+    SubtractionOperation = 1,
+    MultiplicationOperation = 2,
+    DivisionOperation = 3
+};
+/************************************************************************************/
 /*** MAIN FUNCTION ******************************************************************/
 /************************************************************************************/
 int main()
@@ -48,16 +58,16 @@ int main()
 
         switch (iDetectedMathOperation)
         {
-        case 0:
+        case AdditionOperation:
             BasicMathObject.Result = BasicMathObject.Add(&BasicMathObject.FirstElement, &BasicMathObject.SecondElement);
             break;
-        case 1:
+        case SubtractionOperation:
             BasicMathObject.Result = BasicMathObject.Sub(&BasicMathObject.FirstElement, &BasicMathObject.SecondElement);
             break;
-        case 2:
+        case MultiplicationOperation:
             BasicMathObject.Result = BasicMathObject.Mul(&BasicMathObject.FirstElement, &BasicMathObject.SecondElement);
             break;
-        case 3:
+        case DivisionOperation:
             BasicMathObject.Result = BasicMathObject.Div(&BasicMathObject.FirstElement, &BasicMathObject.SecondElement);
             break;
         default:
