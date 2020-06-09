@@ -14,10 +14,10 @@ namespace math
         /* Call ObjectConstructor function from print namespace upon object construction */
         BasicMath() { print::ObjectConstructor(); }
 
-        LD_t Add(LD_t *ptEl1, LD_t *ptEl2) { return (*ptEl1) + (*ptEl2); }
-        LD_t Sub(LD_t *ptEl1, LD_t *ptEl2) { return (*ptEl1) - (*ptEl2); }
-        LD_t Mul(LD_t *ptEl1, LD_t *ptEl2) { return (*ptEl1) - (*ptEl2); }
-        LD_t Div(LD_t *ptEl1, LD_t *ptEl2) { return (*ptEl1) - (*ptEl2); }
+        LD_t Add(const LD_t &refEl1, const LD_t &refEl2) { return refEl1 + refEl2; }
+        LD_t Sub(const LD_t &refEl1, const LD_t &refEl2) { return refEl1 - refEl2; }
+        LD_t Mul(const LD_t &refEl1, const LD_t &refEl2) { return refEl1 * refEl2; }
+        LD_t Div(const LD_t &refEl1, const LD_t &refEl2) { return refEl1 / refEl2; }
 
         /* Call ObjectDeconstructor function from print namespace upon object deconstruction */
         ~BasicMath() { print::ObjectDeconstructor(); }
