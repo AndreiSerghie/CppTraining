@@ -59,16 +59,16 @@ int main()
         switch (iDetectedMathOperation)
         {
         case AdditionOperation:
-            BasicMathObject.Result = BasicMathObject.Add(&BasicMathObject.FirstElement, &BasicMathObject.SecondElement);
+            BasicMathObject.Result = BasicMathObject.Add(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
             break;
         case SubtractionOperation:
-            BasicMathObject.Result = BasicMathObject.Sub(&BasicMathObject.FirstElement, &BasicMathObject.SecondElement);
+            BasicMathObject.Result = BasicMathObject.Sub(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
             break;
         case MultiplicationOperation:
-            BasicMathObject.Result = BasicMathObject.Mul(&BasicMathObject.FirstElement, &BasicMathObject.SecondElement);
+            BasicMathObject.Result = BasicMathObject.Mul(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
             break;
         case DivisionOperation:
-            BasicMathObject.Result = BasicMathObject.Div(&BasicMathObject.FirstElement, &BasicMathObject.SecondElement);
+            BasicMathObject.Result = BasicMathObject.Div(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
             break;
         default:
             break;
