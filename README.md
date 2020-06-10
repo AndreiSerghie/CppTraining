@@ -9,4 +9,4 @@ CodeBlocks
 
 2020.06.09 --> Reached the 23rd video tutorial (**returning values from a function**)
 
-2020.06.10 --> Reached the 37th video tutorial (**overview of classes and objects**)
+2020.06.10 --> Reached the 40th video tutorial (**function members**)
