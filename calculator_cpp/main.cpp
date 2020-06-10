@@ -6,7 +6,7 @@
 #include <string>
 
 #include "BasicMath.h"
-#include "Print.h"
+#include "Print.h" /* Due to the correct use of include guards, the Print.h file is not included twice */
 /************************************************************************************/
 /*** CONSTANTS **********************************************************************/
 /************************************************************************************/
