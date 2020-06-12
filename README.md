@@ -10,3 +10,5 @@ CodeBlocks
 2020.06.09 --> Reached the 23rd video tutorial (**returning values from a function**)
 
 2020.06.10 --> Reached the 40th video tutorial (**function members**)
+
+2020.06.12 --> Reached the 50th video tutorial (**creating function objects**)
