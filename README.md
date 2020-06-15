@@ -12,3 +12,5 @@ CodeBlocks
 2020.06.10 --> Reached the 40th video tutorial (**function members**)
 
 2020.06.12 --> Reached the 50th video tutorial (**creating function objects**)
+
+2020.06.15 --> Reached the 68th video tutorial (**compound assignment operators**)
