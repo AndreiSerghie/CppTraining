@@ -14,3 +14,5 @@ CodeBlocks
 2020.06.12 --> Reached the 50th video tutorial (**creating function objects**)
 
 2020.06.15 --> Reached the 68th video tutorial (**compound assignment operators**)
+
+2020.06.19 --> Reached the 72nd video tutorial (**bitwise operators**)
