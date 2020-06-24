@@ -16,3 +16,5 @@ CodeBlocks
 2020.06.15 --> Reached the 68th video tutorial (**compound assignment operators**)
 
 2020.06.19 --> Reached the 72nd video tutorial (**bitwise operators**)
+
+2020.06.24 --> Reached the 81st video tutorial (**multiple inheritance**)
