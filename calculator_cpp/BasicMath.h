@@ -32,7 +32,6 @@ namespace math
         }
 #endif
 
-
         ~BasicMath() { print::ObjectDeconstructor(); }
     };
 }
