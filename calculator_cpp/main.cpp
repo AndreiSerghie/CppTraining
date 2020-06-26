@@ -6,7 +6,7 @@
 #include <string>
 
 #include "BasicMath.h"
-#include "Print.h" /* Due to the correct use of include guards, the Print.h file is not included twice */
+#include "Print.h"
 /************************************************************************************/
 /*** CONSTANTS **********************************************************************/
 /************************************************************************************/
@@ -59,16 +59,32 @@ int main()
         switch (iDetectedMathOperation)
         {
         case AdditionOperation:
+#if USE_OPERATOR_OVERLOADING == FALSE
             BasicMathObject.Result = BasicMathObject.Add(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
+#else
+            BasicMathObject.Result = BasicMathObject.FirstElement + BasicMathObject.SecondElement;
+#endif
             break;
         case SubtractionOperation:
+#if USE_OPERATOR_OVERLOADING == FALSE
             BasicMathObject.Result = BasicMathObject.Sub(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
+#else
+            BasicMathObject.Result = BasicMathObject.FirstElement - BasicMathObject.SecondElement;
+#endif
             break;
         case MultiplicationOperation:
+#if USE_OPERATOR_OVERLOADING == FALSE
             BasicMathObject.Result = BasicMathObject.Mul(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
+#else
+            BasicMathObject.Result = BasicMathObject.FirstElement * asicMathObject.SecondElement;
+#endif
             break;
         case DivisionOperation:
+#if USE_OPERATOR_OVERLOADING == FALSE
             BasicMathObject.Result = BasicMathObject.Div(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
+#else
+            BasicMathObject.Result = BasicMathObject.FirstElement / BasicMathObject.SecondElement;
+#endif
             break;
         default:
             break;
@@ -83,3 +99,4 @@ int main()
     OutputFile.close(); /* Close the output file */
 }
 /************************************************************************************/
+
