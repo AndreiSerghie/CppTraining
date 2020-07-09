@@ -26,14 +26,18 @@ enum eMathOperations
 /************************************************************************************/
 int main()
 {
-    math::BasicMath BasicMathObject; // Create an object of BasicMath type
+    // Create three Basic Math objects
+    math::BasicMath LHS_Term;
+    math::BasicMath RHS_Term;
+    math::BasicMath Result;
 
     std::ifstream InputFile("D:/cpp_project/calculator/Calculator/calc.in"); // Create an ifsream object and call the constructor
     std::ofstream OutputFile("D:/cpp_project/calculator/Calculator/calc.out"); // Creat an ofstream object and call the constructor
 
     std::string sTextLine, sFirstElement, sSecondElement, sMathOperations[NO_MATH_OPERATIONS] = {"+", "-", "*", "/"};
 
-    int iMathOperationPositionInString, iDetectedMathOperation;
+    int iMathOperationPositionInString;
+    eMathOperations iDetectedMathOperation;
 
     print::ComputingStarted(); // Print a start message in the console
 
@@ -46,51 +50,35 @@ int main()
             if (sTextLine.find(sMathOperations[i]) != -1) /* Check if the math operation is found */
             {
                 iMathOperationPositionInString = sTextLine.find(sMathOperations[i]);
-                iDetectedMathOperation = i; /* Store the index of the found element as the detected math operation */
+                iDetectedMathOperation = static_cast<eMathOperations>(i); /* Store the index of the found element as the detected math operation */
             }
         }
 
         sFirstElement = sTextLine.substr(0, iMathOperationPositionInString);
-        BasicMathObject.FirstElement = atof(sFirstElement.c_str()); /* Convert the first element string to a double */
+        LHS_Term = atof(sFirstElement.c_str()); /* Convert the first element string to a double */
 
         sSecondElement = sTextLine.substr(iMathOperationPositionInString + 1, sTextLine.size());
-        BasicMathObject.SecondElement = atof(sSecondElement.c_str()); /* Convert the second element string to a double */
+        RHS_Term = atof(sSecondElement.c_str()); /* Convert the second element string to a double */
 
         switch (iDetectedMathOperation)
         {
         case AdditionOperation:
-#if USE_OPERATOR_OVERLOADING == FALSE
-            BasicMathObject.Result = BasicMathObject.Add(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
-#else
-            BasicMathObject.Result = BasicMathObject.FirstElement + BasicMathObject.SecondElement;
-#endif
+            Result = LHS_Term + RHS_Term;
             break;
         case SubtractionOperation:
-#if USE_OPERATOR_OVERLOADING == FALSE
-            BasicMathObject.Result = BasicMathObject.Sub(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
-#else
-            BasicMathObject.Result = BasicMathObject.FirstElement - BasicMathObject.SecondElement;
-#endif
+            Result = LHS_Term - RHS_Term;
             break;
         case MultiplicationOperation:
-#if USE_OPERATOR_OVERLOADING == FALSE
-            BasicMathObject.Result = BasicMathObject.Mul(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
-#else
-            BasicMathObject.Result = BasicMathObject.FirstElement * asicMathObject.SecondElement;
-#endif
+            Result = LHS_Term * RHS_Term;
             break;
         case DivisionOperation:
-#if USE_OPERATOR_OVERLOADING == FALSE
-            BasicMathObject.Result = BasicMathObject.Div(BasicMathObject.FirstElement, BasicMathObject.SecondElement);
-#else
-            BasicMathObject.Result = BasicMathObject.FirstElement / BasicMathObject.SecondElement;
-#endif
+            Result = LHS_Term / RHS_Term;
             break;
         default:
             break;
         }
 
-        OutputFile << BasicMathObject.Result << std::endl; /* Push the result into the output file (w/ a new line at the end) */
+        OutputFile << Result.GetExpressionTerm() << std::endl; /* Push the result into the output file (w/ a new line at the end) */
     }
 
     print::ComputingEnded(); // Print an end message in the console
@@ -99,4 +87,3 @@ int main()
     OutputFile.close(); /* Close the output file */
 }
 /************************************************************************************/
-
