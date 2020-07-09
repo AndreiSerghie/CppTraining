@@ -1,40 +1,77 @@
 #ifndef _BASIC_MATH_H_
 #define _BASIC_MATH_H_
-
+/************************************************************************************/
+/*** INCLUDES ***********************************************************************/
+/************************************************************************************/
 #include "Print.h"
-
-#define USE_OPERATOR_OVERLOADING TRUE
-
+/************************************************************************************/
+/*** IMPLEMENTATION *****************************************************************/
+/************************************************************************************/
 namespace math
 {
+    typedef long double LD_t;
+
     class BasicMath
     {
+    private:
+        LD_t ExpressionTerm;
     public:
-        typedef long double LD_t;
-        LD_t FirstElement, SecondElement, Result;
 
-        BasicMath() { print::ObjectConstructor(); }
-
-        LD_t Add(const LD_t &refEl1, const LD_t &refEl2) { return refEl1 + refEl2; }
-        LD_t Sub(const LD_t &refEl1, const LD_t &refEl2) { return refEl1 - refEl2; }
-        LD_t Mul(const LD_t &refEl1, const LD_t &refEl2) { return refEl1 * refEl2; }
-        LD_t Div(const LD_t &refEl1, const LD_t &refEl2) { return refEl1 / refEl2; }
-
-#if USE_OPERATOR_OVERLOADING == TRUE
-        /* Operator overloading */
-        LD_t operator+() { return FirstElement + SecondElement; }
-        LD_t operator-() { return FirstElement - SecondElement; }
-        LD_t operator*() { return FirstElement * SecondElement; }
-        LD_t operator/(LD_t temp)
+        /* Simple constructor which initialize the term with zero and calls a print function */
+        BasicMath() :ExpressionTerm(0)
         {
-            temp = FirstElement / SecondElement;
-            return temp;
+            print::ObjectConstructor(SimpleContructor);
         }
-#endif
+
+        /* Parametrized constructor which initialize the term with a given argument and calls a print function */
+        BasicMath(LD_t Argument) :ExpressionTerm(Argument)
+        {
+            print::ObjectConstructor(ParametrizedContructor);
+        }
+
+        /* Copy constructor which initialize an object of the same time and calls a print function */
+        BasicMath(BasicMath& Argument)
+        {
+            ExpressionTerm = Argument.ExpressionTerm;
+            print::ObjectConstructor(CopyConstructor);
+        }
+
+        LD_t GetExpressionTerm (void) const
+        {
+            return ExpressionTerm;
+        }
+
+        BasicMath operator + (const BasicMath& Argument)
+        {
+            BasicMath Result;
+            Result.ExpressionTerm = ExpressionTerm + Argument.ExpressionTerm;
+            return Result;
+        }
+
+        BasicMath operator - (const BasicMath& Argument)
+        {
+            BasicMath Result;
+            Result.ExpressionTerm = ExpressionTerm - Argument.ExpressionTerm;
+            return Result;
+        }
+
+        BasicMath operator * (const BasicMath& Argument)
+        {
+            BasicMath Result;
+            Result.ExpressionTerm = ExpressionTerm * Argument.ExpressionTerm;
+            return Result;
+        }
+
+        BasicMath operator / (const BasicMath& Argument)
+        {
+            BasicMath Result;
+            Result.ExpressionTerm = ExpressionTerm / Argument.ExpressionTerm;
+            return Result;
+        }
 
         ~BasicMath() { print::ObjectDeconstructor(); }
     };
 }
 
 #endif // _BASIC_MATH_H_
-
+/************************************************************************************/
